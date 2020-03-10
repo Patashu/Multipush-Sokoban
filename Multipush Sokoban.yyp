@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "086aecb6-08c5-410a-9a4e-0a347f99df08",
+            "Value": {
+                "id": "785f2ff7-87a0-4903-befd-b708fab73afc",
+                "resourcePath": "sprites\\ZackSprite\\ZackSprite.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "08f43a2d-cdea-4243-a2d3-c38c3f6c104f",
             "Value": {
                 "id": "26f9b403-0bc4-4965-8d3d-c55a7202a155",
@@ -180,6 +188,14 @@
                 "id": "4a522774-1031-4c0d-9241-39e19e9f596d",
                 "resourcePath": "views\\5cdc66c4-5e2e-4013-9693-b1e22c8cb8b8.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "5f7098fb-7b87-4a02-9d68-aa425380c84f",
+            "Value": {
+                "id": "c02f0978-471a-4a3f-bf81-8a8ca1a3a7df",
+                "resourcePath": "sprites\\Level1background\\Level1background.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
