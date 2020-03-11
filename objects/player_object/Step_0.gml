@@ -5,9 +5,10 @@ var is_run = keyboard_check(vk_shift);
 var input_held = [keyboard_check(vk_right) or keyboard_check(ord("D")),
 keyboard_check(vk_up) or keyboard_check(ord("W")),
 keyboard_check(vk_left) or keyboard_check(ord("A")),
-keyboard_check(vk_down) or keyboard_check(ord("S"))];
+keyboard_check(vk_down) or keyboard_check(ord("S")),
+keyboard_check(vk_backspace) or keyboard_check(ord("Z"))];
 
-for (var i = 0; i < 4; ++i)
+for (var i = 0; i < 5; ++i)
 {
 	if (input_held[i])
 	{
@@ -22,14 +23,16 @@ for (var i = 0; i < 4; ++i)
 var input_pressed = [keyboard_check_pressed(vk_right) or keyboard_check_pressed(ord("D")),
 keyboard_check_pressed(vk_up) or keyboard_check_pressed(ord("W")),
 keyboard_check_pressed(vk_left) or keyboard_check_pressed(ord("A")),
-keyboard_check_pressed(vk_down) or keyboard_check_pressed(ord("S"))];
+keyboard_check_pressed(vk_down) or keyboard_check_pressed(ord("S")),
+keyboard_check_pressed(vk_backspace) or keyboard_check_pressed(ord("Z"))];
 
-//double this if fps doubles, obviously
-var input_repeat = [false, false, false, false];
+var input_repeat = [false, false, false, false, false];
 
-for (var i = 0; i < 4; ++i)
+for (var i = 0; i < 5; ++i)
 {
-	input_repeat[i] = (input_frames[i] - 12) >= 0 and (input_frames[i] - 10) mod 9 == 0;	
+	var c1 = floor(12*room_speed/60);
+	var c2 = floor(9*room_speed/60);
+	input_repeat[i] = (input_frames[i] - c1) >= 0 and (input_frames[i] - c1) mod c2 == 0;	
 }
 
 for (var i = 0; i < 4; ++i)
@@ -43,6 +46,11 @@ for (var i = 0; i < 4; ++i)
 	{
 		try_move(id, i, strength, true, is_run);
 	}
+}
+
+if (input_pressed[4] or input_repeat[4])
+{
+	do_undo();
 }
 
 if (keyboard_check_pressed(ord("R")))

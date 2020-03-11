@@ -30,16 +30,23 @@ do
 	}
 	else
 	{
+		//successfully made a move
+		ds_list_add(global.undo_buffer, [undo_type.turn_count, global.turn_count]);
+		global.turn_count++;
+		
 		var dirxy = global.direction2[dir];
 		var dx = dirxy[0]*TILE_SIZE;
 		var dy = dirxy[1]*TILE_SIZE;
-	
+		
+		ds_list_add(global.undo_buffer, [undo_type.update, thing.id, thing.x, thing.y]);
 		thing.x += dx;
 		thing.y += dy;
 		for (var i = 0; i < ds_list_size(pushees_list); ++i)
 		{
-			pushees_list[| i].x += dx;
-			pushees_list[| i].y += dy;
+			var pushee = pushees_list[| i];
+			ds_list_add(global.undo_buffer, [undo_type.update, pushee.id, pushee.x, pushee.y]);
+			pushee.x += dx;
+			pushee.y += dy;
 		}
 		update_buttons();
 		if (is_run)

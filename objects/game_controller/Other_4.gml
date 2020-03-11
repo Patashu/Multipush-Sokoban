@@ -1,3 +1,6 @@
+ds_list_clear(global.undo_buffer);
+global.turn_count = 0;
+
 update_buttons();
 if (room != starting_room)
 {
