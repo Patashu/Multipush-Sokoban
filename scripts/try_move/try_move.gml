@@ -43,10 +43,15 @@ do
 		thing.y += dy;
 		for (var i = 0; i < ds_list_size(pushees_list); ++i)
 		{
+			global.major_change = true;
 			var pushee = pushees_list[| i];
 			ds_list_add(global.undo_buffer, [undo_type.update, pushee.id, pushee.x, pushee.y]);
 			pushee.x += dx;
 			pushee.y += dy;
+		}
+		if (ds_list_size(pushees_list) > 0)
+		{
+			ds_list_add(global.undo_buffer, [undo_type.major_change, false]);
 		}
 		update_buttons();
 		if (is_run)

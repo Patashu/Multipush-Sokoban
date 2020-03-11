@@ -3,7 +3,8 @@
 enum undo_type
 {
 	turn_count,
-	update
+	update,
+	major_change
 }
 
 global.info_message = "";
@@ -29,5 +30,19 @@ for (var i = ds_list_size(global.undo_buffer)-1; i >= 0; --i)
 		var thing = undo[1];
 		thing.x = undo[2];
 		thing.y = undo[3];
+		update_buttons();
+	}
+	else if (undo[0] == undo_type.major_change)
+	{
+		if (UNLIMITED_UNDO or global.major_change)
+		{
+			global.major_change = false;	
+		}
+		else
+		{
+			global.info_message = "You can only undo past one major change!";
+			ds_list_add(global.undo_buffer, undo);
+			return;
+		}
 	}
 }
