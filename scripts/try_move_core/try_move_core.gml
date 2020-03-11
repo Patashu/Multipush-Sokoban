@@ -1,10 +1,12 @@
-///try_move_core(thing, dir, strength, pushees_list)
+///try_move_core(thing, dir, strength, pushees_list, is_safe, is_run)
 
 //0 for east, 1 for north, 2 for west, 3 for south
 var thing = argument0;
 var dir = argument1;
 var strength = argument2;
 var pushees_list = argument3;
+var is_safe = argument4;
+var is_run = argument5;
 
 var dirxy = global.direction2[dir];
 	var dx = dirxy[0]*TILE_SIZE;
@@ -20,13 +22,17 @@ else
 	var block = collision_point(xx, yy, block_object, false, false);
 	if (block != noone)
 	{
+		if (is_safe)
+		{
+			return "unsafe";
+		}
 		ds_list_add(pushees_list, block);
 		strength -= block.weight;
 		if (strength < 0)
 		{
 			return "heavy";
 		}
-		return try_move_core(block, dir, strength, pushees_list);
+		return try_move_core(block, dir, strength, pushees_list, is_safe, is_run);
 	}
 	else
 	{
