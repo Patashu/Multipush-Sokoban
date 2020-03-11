@@ -26,6 +26,14 @@ if (keyboard_check_pressed(ord("7")))
 {
 	room_goto(room7);	
 }
+if (keyboard_check_pressed(ord("8")))
+{
+	room_goto(room8);	
+}
+if (keyboard_check_pressed(ord("9")))
+{
+	room_goto(room9);	
+}
 if (keyboard_check_pressed(ord("Q")))
 {
 	room_goto(starting_room);	
