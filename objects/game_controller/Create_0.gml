@@ -6,3 +6,21 @@ global.undo_buffer = ds_list_create();
 global.turn_count = 0;
 global.major_change = false;
 #macro UNLIMITED_UNDO false
+#macro X_MIDDLE ((bbox_left+bbox_right)/2)
+#macro Y_MIDDLE ((bbox_top+bbox_bottom)/2)
+global.filename = "save0.sav";
+load_game(global.filename);
+
+global.room_names = ds_map_create();
+global.room_names[? Level_select_w1] = "World 1\r\n\Castle";
+global.room_names[? room1] = "Level 1";
+global.room_names[? room2] = "Level 2";
+global.room_names[? room3] = "Level 3";
+global.room_names[? room4] = "Level 4";
+global.room_names[? room5] = "Level 5";
+global.room_names[? room6] = "Level 6";
+global.room_names[? room7] = "Level 7";
+global.room_names[? room8] = "Level 8";
+global.room_names[? room9] = "Level 9";
+global.escape_room = room;
+global.last_room = room;

@@ -12,7 +12,10 @@ with (button_object)
 	}
 }
 
-if (!any_not_held)
+if (instance_exists(button_object) and !any_not_held)
 {
 	global.info_message = "Level complete! Press Q/Esc to leave this puzzle."
+	var beaten = global.game_data[? "beaten"];
+	beaten[? room_get_name(room)] = true;
+	save_game(global.filename);
 }
