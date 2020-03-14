@@ -22,5 +22,6 @@ global.room_names[? room6] = "Level 6";
 global.room_names[? room7] = "Level 7";
 global.room_names[? room8] = "Level 8";
 global.room_names[? room9] = "Level 9";
+global.room_names[? room10] = "Level 10";
 global.escape_room = room;
 global.last_room = room;
