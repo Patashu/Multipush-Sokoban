@@ -30,4 +30,4 @@ global.room_names[? Troom4] = "Intro 4";
 global.room_names[? Troom5] = "Intro 5";
 global.room_names[? Troom6] = "Intro 6";
 global.escape_room = room;
-global.last_room = room;
+global.last_nonpuzzle_room = room;

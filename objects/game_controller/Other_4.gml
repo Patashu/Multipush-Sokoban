@@ -3,7 +3,7 @@ global.turn_count = 0;
 update_buttons();
 if (instance_exists(player_object))
 {
-	global.escape_room = global.last_room;
+	global.escape_room = global.last_nonpuzzle_room;
 	global.info_message = "Press Q/Esc to leave this puzzle."
 }
 else
