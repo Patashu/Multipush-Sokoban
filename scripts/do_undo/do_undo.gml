@@ -30,6 +30,8 @@ for (var i = ds_list_size(global.undo_buffer)-1; i >= 0; --i)
 		var thing = undo[1];
 		thing.x = undo[2];
 		thing.y = undo[3];
+		var dir = undo[4];
+		do_dir_change(thing, dir);
 		update_buttons();
 	}
 	else if (undo[0] == undo_type.major_change)

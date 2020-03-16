@@ -38,14 +38,15 @@ do
 		var dx = dirxy[0]*TILE_SIZE;
 		var dy = dirxy[1]*TILE_SIZE;
 		
-		ds_list_add(global.undo_buffer, [undo_type.update, thing.id, thing.x, thing.y]);
+		ds_list_add(global.undo_buffer, [undo_type.update, thing.id, thing.x, thing.y, thing.dir]);
 		thing.x += dx;
 		thing.y += dy;
+		do_dir_change(thing, dir);
 		for (var i = 0; i < ds_list_size(pushees_list); ++i)
 		{
 			global.major_change = true;
 			var pushee = pushees_list[| i];
-			ds_list_add(global.undo_buffer, [undo_type.update, pushee.id, pushee.x, pushee.y]);
+			ds_list_add(global.undo_buffer, [undo_type.update, pushee.id, pushee.x, pushee.y, -1]);
 			pushee.x += dx;
 			pushee.y += dy;
 		}

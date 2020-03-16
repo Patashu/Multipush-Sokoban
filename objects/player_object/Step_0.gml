@@ -57,3 +57,35 @@ if (keyboard_check_pressed(ord("R")))
 {
 	room_restart();
 }
+
+//do idle animation
+
+frames_since_dir_change++;
+if (frames_since_dir_change > next_animation_delay)
+{
+	if (idle_animation_state == 0 or idle_animation_state == 6)
+	{
+		image_index = 0;
+		idle_animation_state = 1;
+		next_animation_delay = irandom_range(300, 600);
+	}
+	else if (idle_animation_state <= 2)
+	{
+		image_index += 1;
+		++idle_animation_state;
+		next_animation_delay = 18;
+	}
+	else if (idle_animation_state == 3)
+	{
+		image_index += 1;
+		++idle_animation_state;
+		next_animation_delay = irandom_range(30, 60);
+	}
+	else if (idle_animation_state <= 5)
+	{
+		image_index -= 1;
+		++idle_animation_state;
+		next_animation_delay = 18;
+	}
+	frames_since_dir_change = 0;
+}
