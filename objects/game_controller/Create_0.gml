@@ -23,6 +23,7 @@ global.room_names[? room7] = "Level 7";
 global.room_names[? room8] = "Level 8";
 global.room_names[? room9] = "Level 9";
 global.room_names[? room10] = "Level 10";
+global.room_names[? room11] = "Level 11";
 global.room_names[? Troom1] = "Intro 1";
 global.room_names[? Troom2] = "Intro 2";
 global.room_names[? Troom3] = "Intro 3";
